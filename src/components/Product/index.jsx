@@ -6,7 +6,7 @@ import { Card, Image, Label, Button } from 'semantic-ui-react'
 function Product(props) {
   return(
     <Card style={{ marginTop: 15 }}>
-      <Image size="small" src={props.picture}  />
+      <Image size="medium" src={props.picture}  />
       <Card.Content>
         <Card.Header style={{fontSize: 15}}>{props.name}</Card.Header>
         <Card.Meta>
@@ -14,7 +14,7 @@ function Product(props) {
         </Card.Meta>
         <Card.Description>
           <Label>{props.marca}</Label>
-          <Label>{props.status} en stock</Label>
+          <Label>{props.status} en inventario</Label>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>

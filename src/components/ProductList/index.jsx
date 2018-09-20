@@ -7,7 +7,7 @@ function ProductList(props) {
   return (
     <Segment>
       <Grid>
-        <Grid.Row columns={4}>
+        <Grid.Row columns={3}>
           {props.products.map(p => {
             return (
               <Grid.Column>
@@ -18,6 +18,7 @@ function ProductList(props) {
                   price={p.price}
                   marca={p.marca}
                   status={p.status}
+
                   onSaveProduct={() => props.onSaveProduct(p.id)}
                   onIncrementProduct={() => props.onIncrementProduct(p.id)}
                   onRemoveProduct={() => props.onRemoveProduct(p.id)}

@@ -1,3 +1,42 @@
+.App{
+
+}
+
 .root {
   margin-top: 40px;
 }
+
+.container{
+  background: #4a95bd;
+  width: 100;
+  height: 100;
+}
+
+.columns{
+  background-position: center;
+}
+
+.Cart{
+background-position: center;
+}
+
+.top{
+  background: #fc4a1a;
+  color: white;
+  border: 2px solid white;
+}
+
+.wb{
+  background: #dfcde3
+}
+.searchForm{
+  background-color: green;
+}
+
+.alert{
+  background-blend-mode: color-dodge;
+}
+/* @keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} */

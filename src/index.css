@@ -1,5 +1,14 @@
 body {
-  margin: 0;
-  padding: 0;
+  background-image: url('https://i.ytimg.com/vi/YHQ7hFVHGk0/maxresdefault.jpg');
+  margin: 10px;
+  padding: 10px;
   font-family: sans-serif;
+}
+
+.container{
+  background-color: red;
+}
+
+.style.root{
+  background-color: green;
 }

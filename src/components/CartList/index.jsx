@@ -24,8 +24,8 @@ class CartList extends Component {
       <Card>
         <Card.Content>
           <Card.Header>
-            Carrito de Compras
-            <Icon size="large"  />
+              Carrito de Compras
+            <Icon size="extralarge"  />
           </Card.Header>
         </Card.Content>
         <Card.Content>

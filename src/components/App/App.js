@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Grid, Header } from 'semantic-ui-react'
-import Menu from '../Menu'
-import ProductList from '../ProductList'
-import CartList from '../CartList'
-import Order from '../Order'
-import style from './App.css'
+import { Container, Grid, Header } from 'semantic-ui-react';
+import Menu from '../Menu';
+import ProductList from '../ProductList';
+import CartList from '../CartList';
+import Order from '../Order';
+import style from './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class App extends Component {
         },
         {
           id: 2,
-          name: 'Winter Coat',
+          name: 'Winter Coats',
           picture: 'https://www.scottevest.com/photos/product/revp-blk/main-image.png',
           price: 149,
           datails: 'Compra Protegida, recibe el producto que esperabas o te devolvemos tu dinero.',
@@ -34,7 +34,7 @@ class App extends Component {
         },
         {
           id: 3,
-          name: 'Sock',
+          name: 'Socks',
           picture: 'https://www.polaris-bikewear.co.uk/v/vspfiles/photos/POL01-6166-P-2T.jpg',
           price: 13,
           datails: 'Compra Protegida, recibe el producto que esperabas o te devolvemos tu dinero.',
@@ -56,7 +56,8 @@ class App extends Component {
     this.setState({
       cart: [],
       sum: 0,
-      total: 0
+      total: 0,
+      alert: alert('Compra realizada con éxito')
     });
   }
 
@@ -155,9 +156,9 @@ class App extends Component {
   render() {
     return (
       <Container className={style.root}>
-        <Menu/>
+        <Menu />
         <Grid>
-          <Grid.Column width={12}>
+          <Grid.Column md-12 width={8}>
             <ProductList
               products={this.state.products}
               onSaveProduct={this.handleSaveProduct}
@@ -165,7 +166,7 @@ class App extends Component {
               onRemoveProduct={this.handlerRemoveProduct}
             />
           </Grid.Column>
-          <Grid.Column width={4}>
+          <Grid.Column width={8}>
             <CartList
               items={this.state.cart}
               total={this.state.total}
