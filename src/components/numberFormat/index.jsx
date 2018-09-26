@@ -11,7 +11,7 @@ function Format(props) {
     var amount_parts = amount.split('.'), regexp = /(\d+)(\d{3})/;
 
     while (regexp.test(amount_parts[0]))
-      amount_parts[0] = amount_parts[0].replace(regexp, '$1' + ',' + '$2');
+      amount_parts[0] = amount_parts[0].replace(regexp, '$1'  , + '$2');
 
     return amount_parts.join('.');
   }
