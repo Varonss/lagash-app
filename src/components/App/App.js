@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Grid, Header } from 'semantic-ui-react';
+import { Container, Grid } from 'semantic-ui-react';
 import Menu from '../Menu';
 import ProductList from '../ProductList';
 import CartList from '../CartList';
 import Order from '../Order';
 import style from './App.css';
+import $ from 'jquery';
 
 class App extends Component {
   constructor(props) {
@@ -13,35 +14,7 @@ class App extends Component {
       openOrder: false,
       total: 0,
       sum: 0,
-      products: [
-        {
-          id: 1,
-          name: 'Shoes',
-          picture: 'https://media03.toms.com/static/www/images/product/MENS/ATG/SIDE/10011588-GreyLinenMensPreston-P-1450x1015.jpg',
-          price: 200,
-          datails: 'Compra Protegida, recibe el producto que esperabas o te devolvemos tu dinero.',
-          marca: 'La Coste',
-          status: 5,
-        },
-        {
-          id: 2,
-          name: 'Winter Coats',
-          picture: 'https://www.scottevest.com/photos/product/revp-blk/main-image.png',
-          price: 149,
-          datails: 'Compra Protegida, recibe el producto que esperabas o te devolvemos tu dinero.',
-          marca: 'Old Navy',
-          status: 6,
-        },
-        {
-          id: 3,
-          name: 'Socks',
-          picture: 'https://www.polaris-bikewear.co.uk/v/vspfiles/photos/POL01-6166-P-2T.jpg',
-          price: 13,
-          datails: 'Compra Protegida, recibe el producto que esperabas o te devolvemos tu dinero.',
-          marca: 'nike',
-          status: 2,
-        }
-      ],
+      products: [],
       cart: [],
     }
 
@@ -50,6 +23,7 @@ class App extends Component {
     this.handlerRemoveProduct = this.handlerRemoveProduct.bind(this)
     this.handlerOpenOrder = this.handlerOpenOrder.bind(this)
     this.handlerClearCart = this.handlerClearCart.bind(this)
+    this.getProducts = this.getProducts.bind(this)
   }
 
   handlerClearCart() {
@@ -113,7 +87,6 @@ class App extends Component {
     let indexProduct = this.state.products.findIndex(x => x.id === product.id)
 
     var productCart = {
-      id: product.id,
       name: product.name,
       img: product.picture,
       price: product.price,
@@ -153,12 +126,45 @@ class App extends Component {
     }
   }
 
+  getProducts(){
+    // fetch('https://maxmvpstorage.blob.core.windows.net/drops/products-demo.json', {
+    //   mode: 'no-cors'
+    // })
+    // .then(res => res.json())
+    // .then(data => {
+    //   console.log(data)
+    // })
+    // .catch(err => {
+    //   console.error(err)
+    // })
+      $.ajax({
+        method:'GET',
+        url: 'https://maxmvpstorage.blob.core.windows.net/drops/products-demo.json',
+        dataType: 'xml',
+        success: data => {
+          this.setState({
+            products: data
+          })
+        },
+        headers: {
+          "Access-Control-Allow-Origin" : "*",
+          },
+        error: error => {
+          console.error(error)
+        }
+      })
+    }
+
+componentDidMount(){
+  this.getProducts()
+}
+
   render() {
     return (
       <Container className={style.root}>
         <Menu />
         <Grid>
-          <Grid.Column md-12 width={8}>
+          <Grid.Column md-12='true' width={8}>
             <ProductList
               products={this.state.products}
               onSaveProduct={this.handleSaveProduct}

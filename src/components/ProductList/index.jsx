@@ -12,13 +12,9 @@ function ProductList(props) {
             return (
               <Grid.Column>
                 <Product
-                  key={p.id}
                   name={p.name}
                   picture={p.picture}
                   price={p.price}
-                  marca={p.marca}
-                  status={p.status}
-
                   onSaveProduct={() => props.onSaveProduct(p.id)}
                   onIncrementProduct={() => props.onIncrementProduct(p.id)}
                   onRemoveProduct={() => props.onRemoveProduct(p.id)}

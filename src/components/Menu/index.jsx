@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Segment, Input } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 import SearchForm from '../SearchForm'
 
 class Navigation extends Component {
